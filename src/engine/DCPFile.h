@@ -11,13 +11,28 @@ See "DGLE2.h" for more details.
 
 #include "Common.h"
 
+//TODO:
+//Should be defined somewhere else besides there.
+//The same declaration belongs to DCPFileSystem.h
+//Struct needed to Write function
+struct TDCPFileInfo
+{
+	uint32	ui32CRC32;
+	uint32	ui32Size;
+	uint32	ui32CompressedSize;
+	uint32	ui32Offset;
+	char	cPackedFName[256];
+};
+
+
 class CDCPFile : public CInstancedObj, public IFile
 {
 	uint8	*_pBuffer;
 	uint32	_ui32Size;
 	uint32	_ui32SeekPos;
 	char	_acName[MAX_PATH], _acPath[MAX_PATH];
-	
+	int		_iFile;
+	TDCPFileInfo FileTableHeader;
 public:
 	CDCPFile(uint uiInstIdx, const char* pcName, E_FILE_SYSTEM_OPEN_FLAGS eFlags, uint8 *pBuffer, uint32 ui32Size);
 

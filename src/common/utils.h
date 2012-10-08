@@ -41,6 +41,6 @@ std::string GetOnlyFileName(const char *name);
 uchar EngKeyToASCIIKey(const uint8 key);
 uint8 ASCIIKeyToEngKey(const uchar key);
 
-uint32 GetCRC32(uint8 *pData, uint32 ui32Size);
+uint32 GetCRC32(const uint8 *pData, uint32 ui32Size);
 
 uint8 GetDataAlignmentIncrement(uint uiLineWidth, uint8 ui8BytesPerPixel, uint8 ui8Alignment);
